@@ -1,5 +1,5 @@
-const game = { cur: "", solution: "", puzz: [], total: 0};
-const myWords = ["learn html", "learn css", "learn javasript"];
+const game = { cur: "", solution: "", puzz: [], total: 0 };
+const myWords = ["learn Javascript", "learn html", "learn css"];
 const score = document.querySelector(".score");
 const puzzle = document.querySelector(".puzzle");
 const letters = document.querySelector(".letters");
@@ -7,15 +7,15 @@ const btn = document.querySelector("button");
 btn.addEventListener("click", startGame);
 
 function startGame() {
-    if(myWords.length > 0) {
+    if (myWords.length > 0) {
         btn.style.display = "none";
         game.puzz = [];
         game.total = 0;
         game.cur = myWords.shift();
-        game.solution = game.cur.split();
+        game.solution = game.cur.split("");
         builder();
     }else {
-        score.textContent = "No more words.";
+        score.textContent = "No More Words.";
     }
 }
 
@@ -40,16 +40,16 @@ function builder() {
     letters.innerHTML = "";
     puzzle.innerHTML = "";
     game.solution.forEach((lett) => {
-        let  div = createElements("div", puzzle, "-", "boxE");
-        if(lett = " ") {
-            div.style.borderColor = "white";
-            div.textContent = " ";
-        }else {
-            game.total++;
-        }
-        game.puzz.push(div);
-        updateScore();   
-    })
+    let div = createElements("div", puzzle, "-", "boxE");
+    if(lett == " ") {
+        div.style.borderColor = "white";
+        div.textContent = " ";
+    }else {
+        game.total++;
+}
+game.puzz.push(div);
+updateScore();   
+})
 
     for (let i = 0; i < 26; i++) {
         let temp = String.fromCharCode(65 + i);
@@ -57,8 +57,8 @@ function builder() {
 
         let checker = function (e) {
             div.style.backgroundColor = "#ddd";
-            div.classList.remove = "box";
-            div.classList.add = "boxD";
+            div.classList.remove("box");
+            div.classList.add("boxD");
             div.removeEventListener("click", checker);
             checkLetter(temp);     
         }
