@@ -56,7 +56,7 @@ updateScore();
         let div = createElements("div", letters, temp, "box");
 
         let checker = function (e) {
-            div.style.backgroundColor = "#ddd";
+            div.style.backgroundColor = "blue";
             div.classList.remove("box");
             div.classList.add("boxD");
             div.removeEventListener("click", checker);
